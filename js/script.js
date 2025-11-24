@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavigation();
     initAnimations();
-    initPricingCalculator();
     initGallery();
     initTestimonials();
     initFAQ();
@@ -103,85 +102,7 @@ function animateProgressLine() {
     }
 }
 
-// Pricing calculator functionality
-function initPricingCalculator() {
-    const roomsSelect = document.getElementById('rooms');
-    const distanceSlider = document.getElementById('distance');
-    const distanceValue = document.getElementById('distance-value');
-    const checkboxes = document.querySelectorAll('#pricing-calculator input[type="checkbox"]');
-    const estimatedPrice = document.getElementById('estimated-price');
-    const pricingCalculatorBtn = document.getElementById('pricing-calculator-btn');
-    
-    // Update distance value display
-    if (distanceSlider && distanceValue) {
-        distanceSlider.addEventListener('input', function() {
-            distanceValue.textContent = this.value + ' كم';
-            calculatePrice();
-        });
-    }
-    
-    // Calculate price when any input changes
-    if (roomsSelect) {
-        roomsSelect.addEventListener('change', calculatePrice);
-    }
-    
-    if (checkboxes) {
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', calculatePrice);
-        });
-    }
-    
-    // Scroll to pricing section when calculator button is clicked
-    if (pricingCalculatorBtn) {
-        pricingCalculatorBtn.addEventListener('click', function() {
-            const pricingSection = document.getElementById('pricing');
-            if (pricingSection) {
-                const headerHeight = document.getElementById('header').offsetHeight;
-                const targetPosition = pricingSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-    
-    // Calculate estimated price
-    function calculatePrice() {
-        let basePrice = 0;
-        
-        // Base price based on number of rooms
-        if (roomsSelect) {
-            const roomCount = parseInt(roomsSelect.value);
-            basePrice = 100 + (roomCount * 50);
-        }
-        
-        // Add distance cost
-        if (distanceSlider) {
-            const distance = parseInt(distanceSlider.value);
-            basePrice += Math.max(0, (distance - 10) * 5); // 5 SAR per km after 10km
-        }
-        
-        // Add additional services cost
-        let additionalCost = 0;
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                additionalCost += parseInt(checkbox.value);
-            }
-        });
-        
-        const totalPrice = basePrice + additionalCost;
-        
-        // Update displayed price
-        if (estimatedPrice) {
-            estimatedPrice.textContent = totalPrice + ' ريال';
-        }
-    }
-    
-    // Initialize price calculation
-    calculatePrice();
-}
+
 
 // Gallery functionality
 function initGallery() {

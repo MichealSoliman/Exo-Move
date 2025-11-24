@@ -804,75 +804,152 @@
     </div>
 </section>
 
-    <!-- Pricing Calculator Section -->
-    <section id="pricing" class="py-16 bg-light">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12 animate-enter">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">احسب سعر نقل عفشك</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">استخدم الحاسبة التالية للحصول على تقدير سعر تقريبي لنقل عفشك</p>
+<!-- Why Choose Us Section -->
+<section id="why-choose-us" class="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 right-0 w-80 h-80 bg-primary bg-opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary bg-opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16 animate-enter">
+            <span class="inline-block bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">تميزنا</span>
+            <h2 class="text-3xl font-bold md:text-5x text-darkl">اكزو موف</h2>
+           
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                نقدم لك تجربة نقل عفش استثنائية تجمع بين الاحترافية والجودة والسعر المناسب
+            </p>
+        </div>
+
+        <!-- Main Features Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- Left Column - Image -->
+            <div class="animate-enter">
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="./asstes/img/moving-service-premium (2).avif" 
+                             alt="فريق اكزو موف المحترف" 
+                             class="w-full h-80 object-cover rounded-xl shadow-lg">
+                    </div>
+                    <!-- Floating Stats -->
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-xl animate-pulse">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">+500</div>
+                            <div class="text-sm opacity-90">عملاء راضون</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6 animate-enter">
-                <form id="pricing-calculator">
-                    <div class="mb-6">
-                        <label class="block text-dark font-medium mb-2" for="rooms">عدد الغرف</label>
-                        <select id="rooms" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                            <option value="1">غرفة واحدة</option>
-                            <option value="2">غرفتين</option>
-                            <option value="3" selected>3 غرف</option>
-                            <option value="4">4 غرف</option>
-                            <option value="5">5 غرف أو أكثر</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-dark font-medium mb-2" for="distance">المسافة التقريبية (كم)</label>
-                        <input type="range" id="distance" min="5" max="50" value="15" class="w-full">
-                        <div class="flex justify-between text-sm text-gray-600 mt-1">
-                            <span>5 كم</span>
-                            <span id="distance-value">15 كم</span>
-                            <span>50 كم</span>
+
+            <!-- Right Column - Features -->
+            <div class="space-y-6 animate-enter">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark mb-2">ضمان كامل على الأثاث</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                نضمن وصول أثاثك سليماً بنسبة 100%. في حال حدوث أي تلف، نتحمل المسؤولية الكاملة ونقوم بالتعويض الفوري.
+                            </p>
                         </div>
                     </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-dark font-medium mb-2">خدمات إضافية</label>
-                        <div class="space-y-2">
-                            <label class="flex items-center">
-                                <input type="checkbox" class="rounded text-primary focus:ring-primary" value="50">
-                                <span class="mr-2">تغليف احترافي (+50 ريال)</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="rounded text-primary focus:ring-primary" value="100">
-                                <span class="mr-2">فك وتركيب (+100 ريال)</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="checkbox" class="rounded text-primary focus:ring-primary" value="30">
-                                <span class="mr-2">تخزين مؤقت (+30 ريال/يوم)</span>
-                            </label>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark mb-2">خدمة سريعة 24/7</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                نعمل على مدار الساعة لتلبية احتياجاتك. فريقنا جاهز للاستجابة في أي وقت، مع إنجاز المهام في وقت قياسي.
+                            </p>
                         </div>
                     </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-dark font-medium mb-2" for="date">التاريخ المطلوب</label>
-                        <input type="date" id="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                    </div>
-                    
-                    <div class="bg-gray-100 p-4 rounded-lg mb-6">
-                        <div class="flex justify-between items-center">
-                            <span class="text-dark font-medium">السعر التقريبي:</span>
-                            <span id="estimated-price" class="text-2xl font-bold text-primary">450 ريال</span>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
                         </div>
-                        <p class="text-sm text-gray-600 mt-2">هذا السعر تقريبي وقد يختلف حسب التفاصيل الفعلية للعفش</p>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark mb-2">أسعار تنافسية وشفافة</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                نقدم أفضل الأسعار في السوق مع شفافية كاملة. لا توجد تكاليف خفية، ونسلمك فاتورة مفصلة بكل الخدمات.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <button type="button" id="request-quote" class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-green-800 transition-colors">
-                        اطلب عرض سعر دقيق
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Stats Section -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div class="text-center animate-enter">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">5+</div>
+                <div class="text-gray-600 font-medium">سنوات خبرة</div>
+            </div>
+            <div class="text-center animate-enter">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">1000+</div>
+                <div class="text-gray-600 font-medium">عملية نقل ناجحة</div>
+            </div>
+            <div class="text-center animate-enter">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">98%</div>
+                <div class="text-gray-600 font-medium">عملاء راضون</div>
+            </div>
+            <div class="text-center animate-enter">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">24/7</div>
+                <div class="text-gray-600 font-medium">دعم فني</div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center animate-enter">
+            <div class="bg-gradient-to-r from-primary to-green-700 rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+                </div>
+                
+                <div class="relative z-10">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">مستعد لبدء تجربة النقل الأفضل؟</h3>
+                    <p class="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+                        انضم إلى المئات من العملاء الراضين عن خدماتنا وتمتع بتجربة نقل عفش خالية من المتاعب
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:+966555123456" class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-colors flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            اتصل بنا الآن
+                        </a>
+                        <a href="#services" class="bg-secondary text-dark px-8 py-4 rounded-xl font-bold hover:bg-amber-600 transition-colors flex items-center justify-center gap-3 border border-amber-200 hover:border-amber-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            استعرض الخدمات
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 bg-white">
