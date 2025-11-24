@@ -114,12 +114,12 @@ function initGallery() {
     
     // Sample gallery data (in a real app, this would come from an API)
     const galleryItems = [
-        { id: 1, src: '../asstes/img/pexels-rdne-7464369.jpg', alt: 'فريق اكزو موف يقوم بتغليف العفش' },
-        { id: 2, src: '../asstes/img/pexels-rdne-7464403.jpg', alt: 'شاحنة اكزو موف لنقل العفش' },
-        { id: 3, src: '../asstes/img/pexels-rdne-7464687.jpg', alt: 'تغليف احترافي للأثاث' },
-        { id: 4, src: '../asstes/img/pexels-tima-miroshnichenko-6169639.jpg', alt: 'نقل عفش داخل جدة' },
-        { id: 5, src: '../asstes/img/pexels-zeng-jinwen-679366437-17912719.jpg', alt: 'فك وتركيب الأثاث' },
-        { id: 6, src: '../asstes/img/pexels-ketut-subiyanto-4246106.jpg', alt: 'تخزين عفش في مستودعات اكزو موف' }
+        { id: 1, src: '../asstes/img/furniture-moving.avif', alt: 'فريق اكزو موف يقوم بتغليف العفش' },
+        { id: 2, src: '../asstes/img/furnitures-care.avif', alt: 'شاحنة اكزو موف لنقل العفش' },
+        { id: 3, src: '../asstes/img/furnitures-quality.avif', alt: 'تغليف احترافي للأثاث' },
+        { id: 4, src: '../asstes/img/move-furnitures.avif', alt: 'نقل عفش داخل جدة' },
+        { id: 5, src: '../asstes/img/secure-moving.avif', alt: 'فك وتركيب الأثاث' },
+        { id: 6, src: '../asstes/img/quick-moving.avif', alt: 'تخزين عفش في مستودعات اكزو موف' }
     ];
     
     let displayedItems = 3;
