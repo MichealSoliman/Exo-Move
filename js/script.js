@@ -114,12 +114,12 @@ function initGallery() {
     
     // Sample gallery data (in a real app, this would come from an API)
     const galleryItems = [
-        { id: 1, src: 'images/gallery-1.webp', alt: 'فريق اكزو موف يقوم بتغليف العفش' },
-        { id: 2, src: 'images/gallery-2.webp', alt: 'شاحنة اكزو موف لنقل العفش' },
-        { id: 3, src: 'images/gallery-3.webp', alt: 'تغليف احترافي للأثاث' },
-        { id: 4, src: 'images/gallery-4.webp', alt: 'نقل عفش داخل جدة' },
-        { id: 5, src: 'images/gallery-5.webp', alt: 'فك وتركيب الأثاث' },
-        { id: 6, src: 'images/gallery-6.webp', alt: 'تخزين عفش في مستودعات اكزو موف' }
+        { id: 1, src: '../asstes/img/pexels-rdne-7464369.jpg', alt: 'فريق اكزو موف يقوم بتغليف العفش' },
+        { id: 2, src: '../asstes/img/pexels-rdne-7464403.jpg', alt: 'شاحنة اكزو موف لنقل العفش' },
+        { id: 3, src: '../asstes/img/pexels-rdne-7464687.jpg', alt: 'تغليف احترافي للأثاث' },
+        { id: 4, src: '../asstes/img/pexels-tima-miroshnichenko-6169639.jpg', alt: 'نقل عفش داخل جدة' },
+        { id: 5, src: '../asstes/img/pexels-zeng-jinwen-679366437-17912719.jpg', alt: 'فك وتركيب الأثاث' },
+        { id: 6, src: '../asstes/img/pexels-ketut-subiyanto-4246106.jpg', alt: 'تخزين عفش في مستودعات اكزو موف' }
     ];
     
     let displayedItems = 3;
