@@ -355,81 +355,179 @@ function initTestimonials() {
 // FAQ functionality
 function initFAQ() {
     const faqContainer = document.getElementById('faq-container');
+    const faqTabs = document.querySelectorAll('.faq-tab');
     
     if (!faqContainer) return;
     
-    // Sample FAQ data
+    // Sample FAQ data with categories
     const faqs = [
         {
             question: 'كم تستغرق عملية نقل العفش؟',
-            answer: 'تعتمد مدة النقل على حجم العفش والمسافة. بشكل عام، تستغرق عملية نقل شقة 3 غرف من 4 إلى 6 ساعات.'
+            answer: 'تعتمد مدة النقل على حجم العفش والمسافة. بشكل عام، تستغرق عملية نقل شقة 3 غرف من 4 إلى 6 ساعات. نحن نعمل بفريق محترف لضمان إنجاز المهمة في أسرع وقت ممكن مع الحفاظ على الجودة.',
+            category: 'services'
         },
         {
             question: 'هل توفرون خدمة التغليف؟',
-            answer: 'نعم، نوفر خدمة تغليف احترافية بمواد عالية الجودة لحماية أثاثك أثناء النقل.'
+            answer: 'نعم، نوفر خدمة تغليف احترافية بمواد عالية الجودة لحماية أثاثك أثناء النقل. نستخدم مواد تغليف متخصصة مثل الفقاعات الواقية، الأغطية الواقية، ومواد التغليف المقاومة للخدش.',
+            category: 'services'
         },
         {
             question: 'ما هي مناطق الخدمة التي تغطونها؟',
-            answer: 'نغطي جميع أحياء جدة، كما نقدم خدمة النقل بين المدن السعودية.'
+            answer: 'نغطي جميع أحياء جدة، كما نقدم خدمة النقل بين المدن السعودية. يمكننا الوصول إلى أي مكان في المملكة مع ضمان نفس مستوى الجودة والاحترافية.',
+            category: 'services'
         },
         {
             question: 'هل أسعاركم تشمل الضريبة؟',
-            answer: 'نعم، جميع الأسعار المعلنة تشمل ضريبة القيمة المضافة.'
+            answer: 'نعم، جميع الأسعار المعلنة تشمل ضريبة القيمة المضافة. نحن نؤمن بالشفافية الكاملة في التسعير ولا توجد أي تكاليف خفية.',
+            category: 'pricing'
         },
         {
             question: 'كيف يمكنني حجز موعد للنقل؟',
-            answer: 'يمكنك حجز موعد عبر الاتصال بنا على الرقم الموجود في الموقع أو عبر نموذج الاتصال.'
+            answer: 'يمكنك حجز موعد عبر الاتصال بنا على الرقم الموجود في الموقع، أو عبر نموذج الاتصال، أو عبر الواتساب. سنقوم بتأكيد الحجز وتحديد الموعد المناسب لك.',
+            category: 'booking'
+        },
+        {
+            question: 'هل تقدمون ضمان على الخدمة؟',
+            answer: 'نعم، نقدم ضماناً شاملاً على جميع خدماتنا. إذا حدث أي تلف أو خدش للأثاث خلال عملية النقل، فإننا نتحمل المسؤولية الكاملة ونقوم بالتعويض المناسب.',
+            category: 'services'
+        },
+        {
+            question: 'ما هي طرق الدفع المتاحة؟',
+            answer: 'نقبل الدفع النقدي، التحويل البنكي، والدفع بالبطاقات الإئتمانية. يمكنك اختيار طريقة الدفع التي تناسبك مع توفير فاتورة رسمية لكل عملية.',
+            category: 'pricing'
+        },
+        {
+            question: 'هل يمكنني تغيير موعد النقل؟',
+            answer: 'نعم، يمكنك تغيير موعد النقل قبل 24 ساعة على الأقل من الموعد المحدد. نحن نتفهم الظروف الطارئة ونسعى لتلبية احتياجات عملائنا بأقصى مرونة ممكنة.',
+            category: 'booking'
         }
     ];
     
     // Render FAQs
-    faqs.forEach((faq, index) => {
-        const faqItem = document.createElement('div');
-        faqItem.className = 'border border-gray-200 rounded-lg';
+    function renderFAQs(category = 'all') {
+        faqContainer.innerHTML = '';
         
-        const faqId = `faq-${index}`;
+        const filteredFAQs = category === 'all' ? faqs : faqs.filter(faq => faq.category === category);
         
-        faqItem.innerHTML = `
-            <button class="w-full text-right p-4 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-lg" aria-expanded="false" aria-controls="${faqId}-answer">
-                <span class="font-medium text-dark">${faq.question}</span>
-                <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </button>
-            <div id="${faqId}-answer" class="hidden px-4 pb-4 text-gray-600">
-                ${faq.answer}
-            </div>
-        `;
-        
-        const button = faqItem.querySelector('button');
-        const answer = faqItem.querySelector(`#${faqId}-answer`);
-        
-        button.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
+        filteredFAQs.forEach((faq, index) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'faq-item bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden animate-enter';
+            faqItem.style.animationDelay = `${index * 100}ms`;
             
-            // Toggle answer visibility
-            if (isExpanded) {
-                answer.classList.add('hidden');
-                this.querySelector('svg').style.transform = 'rotate(0deg)';
-            } else {
-                answer.classList.remove('hidden');
-                this.querySelector('svg').style.transform = 'rotate(180deg)';
-            }
+            const faqId = `faq-${index}`;
+            
+            faqItem.innerHTML = `
+                <button class="w-full text-right p-6 flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 group" aria-expanded="false" aria-controls="${faqId}-answer">
+                    <div class="flex items-start gap-4 flex-1">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <span class="font-bold text-dark text-lg text-right flex-1">${faq.question}</span>
+                    </div>
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300 ml-4">
+                        <svg class="w-5 h-5 faq-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </div>
+                </button>
+                <div id="${faqId}-answer" class="faq-answer">
+                    <div class="px-6 pb-6 border-t border-gray-100">
+                        <p class="text-gray-600 leading-relaxed text-right pt-4">${faq.answer}</p>
+                    </div>
+                </div>
+            `;
+            
+            const button = faqItem.querySelector('button');
+            const answer = faqItem.querySelector(`#${faqId}-answer`);
+            const icon = faqItem.querySelector('.faq-icon');
+            
+            button.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer) {
+                        otherAnswer.classList.remove('open');
+                        otherAnswer.previousElementSibling.setAttribute('aria-expanded', 'false');
+                        otherAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
+                    }
+                });
+                
+                // Toggle current FAQ
+                if (isExpanded) {
+                    answer.classList.remove('open');
+                    this.setAttribute('aria-expanded', 'false');
+                    icon.classList.remove('rotated');
+                } else {
+                    answer.classList.add('open');
+                    this.setAttribute('aria-expanded', 'true');
+                    icon.classList.add('rotated');
+                }
+            });
+            
+            // Keyboard accessibility
+            button.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+            
+            faqContainer.appendChild(faqItem);
         });
-        
-        // Keyboard accessibility
-        button.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
+
+        // Initialize animations
+        initAnimations();
+    }
+    
+    // Tab functionality
+    faqTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            faqTabs.forEach(t => t.classList.remove('active', 'bg-primary', 'text-white'));
+            faqTabs.forEach(t => t.classList.add('bg-white', 'text-dark', 'border', 'border-gray-200'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active', 'bg-primary', 'text-white');
+            this.classList.remove('bg-white', 'text-dark', 'border', 'border-gray-200');
+            
+            // Render FAQs for selected category
+            const category = this.getAttribute('data-category');
+            renderFAQs(category);
         });
-        
-        faqContainer.appendChild(faqItem);
     });
+    
+    // Animation functionality
+    function initAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animate-enter class
+        document.querySelectorAll('.animate-enter').forEach(el => {
+            observer.observe(el);
+        });
+    }
+    
+    // Initial render
+    renderFAQs();
 }
 
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initFAQ();
+});
 // Contact forms functionality
 function initContactForms() {
     const contactForm = document.getElementById('contact-form');
