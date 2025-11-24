@@ -22,14 +22,7 @@ function initNavigation() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    // Sticky header on scroll
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.classList.add('bg-white', 'shadow-lg');
-        } else {
-            header.classList.remove('bg-white', 'shadow-lg');
-        }
-    });
+  
     
     // Mobile menu toggle
     if (mobileMenuButton && mobileMenu) {
